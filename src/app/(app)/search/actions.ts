@@ -1,9 +1,29 @@
+
 "use server";
 
 import { aiRankedSearchResults } from "@/ai/flows/ai-ranked-search-results";
-import { getCases } from "@/lib/data";
 import type { Case } from "@/lib/types";
 import { parse, isAfter, isBefore, isEqual } from 'date-fns';
+
+async function fetchCasesFromBackend(params: URLSearchParams): Promise<Case[]> {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    if (!apiUrl) {
+        console.error("API URL is not configured.");
+        return [];
+    }
+
+    try {
+        const response = await fetch(`${apiUrl}/search?${params.toString()}`);
+        if (!response.ok) {
+            console.error("Failed to fetch cases from backend:", response.statusText);
+            return [];
+        }
+        return await response.json();
+    } catch (error) {
+        console.error("Error fetching cases from backend:", error);
+        return [];
+    }
+}
 
 export async function performSearch(formData: FormData): Promise<Case[]> {
     const query = (formData.get('searchQuery') as string || '').toLowerCase();
@@ -14,30 +34,16 @@ export async function performSearch(formData: FormData): Promise<Case[]> {
     const startDateStr = formData.get('startDate') as string;
     const endDateStr = formData.get('endDate') as string;
 
-    const startDate = startDateStr ? new Date(startDateStr) : null;
-    const endDate = endDateStr ? new Date(endDateStr) : null;
-    
-    // Simulate DB query with filtering
-    const allCases = getCases();
+    const params = new URLSearchParams();
+    if (query) params.append('q', query);
+    if (state) params.append('state', state);
+    if (district) params.append('district', district);
+    if (establishment) params.append('establishment', establishment);
+    if (disposalNature) params.append('disposalNature', disposalNature);
+    if (startDateStr) params.append('startDate', startDateStr);
+    if (endDateStr) params.append('endDate', endDateStr);
 
-    const filteredCases = allCases.filter(c => {
-        const queryMatch = query ? 
-            c.Party_Name.toLowerCase().includes(query) || 
-            c.Case_Number.toLowerCase().includes(query) || 
-            c.CNR.toLowerCase().includes(query) : true;
-        
-        const stateMatch = state ? c.State === state : true;
-        const districtMatch = district ? c.District === district : true;
-        const establishmentMatch = establishment ? c.Establishment === establishment : true;
-        const disposalNatureMatch = disposalNature ? c.Disposal_Nature === disposalNature : true;
-
-        const registrationDate = parse(c.Date_of_Registration, "dd-MM-yyyy", new Date());
-
-        const startDateMatch = startDate ? (isAfter(registrationDate, startDate) || isEqual(registrationDate, startDate)) : true;
-        const endDateMatch = endDate ? (isBefore(registrationDate, endDate) || isEqual(registrationDate, endDate)) : true;
-
-        return queryMatch && stateMatch && districtMatch && establishmentMatch && disposalNatureMatch && startDateMatch && endDateMatch;
-    });
+    const filteredCases = await fetchCasesFromBackend(params);
 
     if (filteredCases.length === 0) {
         return [];
@@ -49,9 +55,6 @@ export async function performSearch(formData: FormData): Promise<Case[]> {
                 query: query,
                 searchResults: filteredCases,
             });
-            // The AI might return a different structure, so we need to be careful
-            // For this mock, we assume it returns the same structure and order.
-            // A more robust solution would map the AI response back to our Case[] type.
             return rankedResults as Case[];
         } catch (error) {
             console.error("AI Ranking failed:", error);
