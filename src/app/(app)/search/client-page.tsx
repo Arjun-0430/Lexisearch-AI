@@ -1,7 +1,8 @@
+
 "use client";
 
 import { useState } from 'react';
-import { Search, Filter, RefreshCw, Sparkles, ExternalLink, Calendar as CalendarIcon, Eye } from 'lucide-react';
+import { Search, Filter, RefreshCw, Sparkles, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -28,6 +29,7 @@ import { performSearch } from './actions';
 import type { Case } from '@/lib/types';
 import { RiskBadge } from '@/components/shared/risk-badge';
 import Link from 'next/link';
+import { Calendar as CalendarIcon } from 'lucide-react';
 
 interface SearchClientPageProps {
   states: string[];
@@ -46,19 +48,27 @@ export function SearchClientPage({
   const [results, setResults] = useState<Case[]>([]);
   const [startDate, setStartDate] = useState<Date | undefined>();
   const [endDate, setEndDate] = useState<Date | undefined>();
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsLoading(true);
     setResults([]);
+    setError(null);
 
     const formData = new FormData(event.currentTarget);
     if(startDate) formData.append('startDate', startDate.toISOString());
     if(endDate) formData.append('endDate', endDate.toISOString());
 
-    const searchResults = await performSearch(formData);
-    setResults(searchResults);
-    setIsLoading(false);
+    try {
+      const searchResults = await performSearch(formData);
+      setResults(searchResults);
+    } catch (e) {
+      console.error(e);
+      setError('An error occurred while searching.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -73,7 +83,7 @@ export function SearchClientPage({
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-              <Input name="searchQuery" className="pl-10" placeholder="Search by case number, party name, CNR..." />
+              <Input name="searchQuery" className="pl-10" placeholder="Search by party name..." />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <Select name="state">
@@ -166,7 +176,7 @@ export function SearchClientPage({
                 <TableHead>Case Details</TableHead>
                 <TableHead>Location</TableHead>
                 <TableHead>Dates</TableHead>
-                <TableHead>AI Risk</TableHead>
+                <TableHead>Disposal Nature</TableHead>
                 <TableHead>Action</TableHead>
               </TableRow>
             </TableHeader>
@@ -176,9 +186,13 @@ export function SearchClientPage({
                   <TableCell colSpan={5} className="text-center">
                     <div className="flex items-center justify-center p-8">
                        <RefreshCw className="mr-2 h-6 w-6 animate-spin text-primary" />
-                       <span className="text-muted-foreground">Searching and ranking results...</span>
+                       <span className="text-muted-foreground">Searching...</span>
                     </div>
                   </TableCell>
+                </TableRow>
+              ) : error ? (
+                 <TableRow>
+                  <TableCell colSpan={5} className="text-center text-destructive h-24">{error}</TableCell>
                 </TableRow>
               ) : results.length > 0 ? (
                 results.map((c) => (
@@ -195,7 +209,7 @@ export function SearchClientPage({
                       Reg: {c.Date_of_Registration}<br/>Next: {c.Next_Date || 'N/A'}
                     </TableCell>
                     <TableCell>
-                      {c.riskLevel && <RiskBadge level={c.riskLevel} />}
+                      {c.Disposal_Nature}
                     </TableCell>
                     <TableCell>
                       <Button asChild variant="ghost" size="icon">

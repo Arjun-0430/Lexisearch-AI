@@ -1,13 +1,16 @@
+
 import { PageHeader } from '@/components/shared/page-header';
 import { getCases } from '@/lib/data';
 import { SearchClientPage } from './client-page';
 
 export default async function SearchPage() {
+  // This now fetches mock data just to populate filters.
+  // The actual search will be done client-side against the API.
   const cases = getCases();
-  const states = [...new Set(cases.map(c => c.State))];
-  const districts = [...new Set(cases.map(c => c.District))];
-  const establishments = [...new Set(cases.map(c => c.Establishment))];
-  const disposalNatures = [...new Set(cases.map(c => c.Disposal_Nature))];
+  const states = [...new Set(cases.map(c => c.State).filter(Boolean))];
+  const districts = [...new Set(cases.map(c => c.District).filter(Boolean))];
+  const establishments = [...new Set(cases.map(c => c.Establishment).filter(Boolean))];
+  const disposalNatures = [...new Set(cases.map(c => c.Disposal_Nature).filter(Boolean))];
 
   return (
     <>

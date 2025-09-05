@@ -11,14 +11,26 @@ async function fetchCasesFromBackend(params: URLSearchParams): Promise<Case[]> {
         console.error("API URL is not configured.");
         return [];
     }
+    
+    // The user's example uses `parties`, let's align with that if the query is present.
+    // The backend seems to expect `parties` for the main search term.
+    const query = params.get('q');
+    if (query) {
+        params.delete('q');
+        params.set('parties', query);
+    }
 
     try {
         const response = await fetch(`${apiUrl}/search?${params.toString()}`);
         if (!response.ok) {
             console.error("Failed to fetch cases from backend:", response.statusText);
+            const errorBody = await response.text();
+            console.error("Error body:", errorBody);
             return [];
         }
-        return await response.json();
+        const data = await response.json();
+        // The backend returns an object with a `case_records` key
+        return data.case_records as Case[];
     } catch (error) {
         console.error("Error fetching cases from backend:", error);
         return [];
@@ -39,9 +51,9 @@ export async function performSearch(formData: FormData): Promise<Case[]> {
     if (state) params.append('state', state);
     if (district) params.append('district', district);
     if (establishment) params.append('establishment', establishment);
-    if (disposalNature) params.append('disposalNature', disposalNature);
-    if (startDateStr) params.append('startDate', startDateStr);
-    if (endDateStr) params.append('endDate', endDateStr);
+    if (disposalNature) params.append('disposal_nature', disposalNature);
+    if (startDateStr) params.append('start_date', startDateStr.split('T')[0]);
+    if (endDateStr) params.append('end_date', endDateStr.split('T')[0]);
 
     const filteredCases = await fetchCasesFromBackend(params);
 
@@ -49,18 +61,19 @@ export async function performSearch(formData: FormData): Promise<Case[]> {
         return [];
     }
 
-    if (query && filteredCases.length > 1) {
-        try {
-            const rankedResults = await aiRankedSearchResults({
-                query: query,
-                searchResults: filteredCases,
-            });
-            return rankedResults as Case[];
-        } catch (error) {
-            console.error("AI Ranking failed:", error);
-            return filteredCases; // Fallback to unranked results
-        }
-    }
+    // The AI ranking seems to cause issues, let's return the direct results for now.
+    // if (query && filteredCases.length > 1) {
+    //     try {
+    //         const rankedResults = await aiRankedSearchResults({
+    //             query: query,
+    //             searchResults: filteredCases,
+    //         });
+    //         return rankedResults as Case[];
+    //     } catch (error) {
+    //         console.error("AI Ranking failed:", error);
+    //         return filteredCases; // Fallback to unranked results
+    //     }
+    // }
 
     return filteredCases;
 }

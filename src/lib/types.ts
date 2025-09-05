@@ -1,3 +1,4 @@
+
 export type User = {
   id: number;
   name: string;
@@ -16,6 +17,7 @@ export type Tenant = {
   users: number;
 };
 
+// Based on the backend response
 export type Case = {
   Sr_No: string;
   State: string;
