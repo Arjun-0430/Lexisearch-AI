@@ -28,7 +28,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useAppContext } from '@/context/app-context';
 import { Avatar, AvatarFallback } from '../ui/avatar';
-import { useSidebar } from '../ui/sidebar';
+import { useSidebar } from '@/hooks/use-sidebar';
 import { navItems, superAdminNavItems } from './nav-items';
 
 export function Header() {

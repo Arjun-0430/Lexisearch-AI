@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { AppSidebar } from '@/components/layout/sidebar';
 import { Header } from '@/components/layout/header';
 import { useAppContext } from '@/context/app-context';
-import { SidebarProvider } from '@/components/ui/sidebar';
+import { SidebarProvider } from '@/hooks/use-sidebar';
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const { user } = useAppContext();
