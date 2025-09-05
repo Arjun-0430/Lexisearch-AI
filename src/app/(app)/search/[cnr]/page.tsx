@@ -34,8 +34,8 @@ export default function CaseDetailPage({ params }: CaseDetailPageProps) {
   ];
 
   return (
-    <>
-      <div className="flex items-center gap-4 mb-4">
+    <div className="mx-auto grid max-w-6xl flex-1 auto-rows-max gap-4">
+      <div className="flex items-center gap-4">
         <Button variant="outline" size="icon" className="h-7 w-7" asChild>
           <Link href="/search">
             <ChevronLeft className="h-4 w-4" />
@@ -130,6 +130,6 @@ export default function CaseDetailPage({ params }: CaseDetailPageProps) {
           </Card>
         </div>
       </div>
-    </>
+    </div>
   );
 }
