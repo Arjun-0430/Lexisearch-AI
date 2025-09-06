@@ -1,4 +1,4 @@
-import { FileText, Shield, Code, Users } from 'lucide-react';
+import { FileText, Shield, Cpu, Users } from 'lucide-react';
 import { StatCard } from '@/components/shared/stat-card';
 import { PageHeader } from '@/components/shared/page-header';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -17,11 +17,11 @@ export default function DashboardPage() {
 
   return (
     <>
-      <PageHeader title="Dashboard" description="Welcome back to LexiSearch AI." />
+      <PageHeader title="Overview" description="Welcome back to your LegalAI Dashboard." />
       <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
         <StatCard title="Total Cases" value={cases.length.toLocaleString()} icon={FileText} />
         <StatCard title="High-Risk Cases" value={cases.filter(c => c.riskLevel === 'High').length} icon={Shield} color="red" />
-        <StatCard title="AI Models Active" value={aiModels.filter(m => m.status === 'Active').length} icon={Code} color="purple" aiEnhanced />
+        <StatCard title="AI Models Active" value={aiModels.filter(m => m.status === 'Active').length} icon={Cpu} color="purple" aiEnhanced />
         <StatCard title="Active Users" value={users.length} icon={Users} color="blue" />
       </div>
       <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3 mt-8">
@@ -33,7 +33,7 @@ export default function DashboardPage() {
                 An overview of the most recently added cases.
               </CardDescription>
             </div>
-            <Button asChild size="sm" className="ml-auto gap-1">
+            <Button asChild size="sm" variant="ghost" className="ml-auto gap-1">
               <Link href="/search">
                 View All
                 <ChevronRight className="h-4 w-4" />
@@ -43,9 +43,9 @@ export default function DashboardPage() {
           <CardContent>
             <div className="space-y-4">
               {cases.slice(0, 4).map((c) => (
-                <div key={c.CNR} className="flex items-center justify-between space-x-4 p-2 rounded-lg hover:bg-muted">
+                <div key={c.CNR} className="flex items-center justify-between space-x-4 p-2 rounded-lg hover:bg-white/80 dark:hover:bg-zinc-800/80">
                     <div className="flex items-center space-x-4">
-                        <div className="flex-shrink-0">
+                        <div className="flex-shrink-0 p-2 bg-slate-100 dark:bg-zinc-800 rounded-lg">
                            <FileText className="h-6 w-6 text-muted-foreground" />
                         </div>
                         <div>

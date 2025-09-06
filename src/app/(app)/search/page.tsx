@@ -4,8 +4,6 @@ import { getCases } from '@/lib/data';
 import { SearchClientPage } from './client-page';
 
 export default async function SearchPage() {
-  // This now fetches mock data just to populate filters.
-  // The actual search will be done client-side against the API.
   const cases = getCases();
   const states = [...new Set(cases.map(c => c.State).filter(Boolean))];
   const districts = [...new Set(cases.map(c => c.District).filter(Boolean))];

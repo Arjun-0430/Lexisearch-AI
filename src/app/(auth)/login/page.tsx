@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Shield, Eye, EyeOff, LogIn, RefreshCw, Check, Fingerprint } from 'lucide-react';
+import { Eye, EyeOff, LogIn, RefreshCw, Check, Fingerprint, Scale } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -79,14 +79,16 @@ export default function LoginPage() {
 
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <Card className="w-full max-w-md shadow-2xl">
+    <div className="min-h-screen flex items-center justify-center p-4">
+      <Card className="w-full max-w-md shadow-2xl bg-white/70 dark:bg-zinc-900/70 backdrop-blur-lg">
         <CardHeader className="text-center">
-          <div className="mx-auto bg-primary/10 rounded-full p-3 w-16 h-16 flex items-center justify-center mb-4">
-            <Shield className="w-8 h-8 text-primary" />
+          <div className="mx-auto rounded-xl p-3 w-16 h-16 flex items-center justify-center mb-4 bg-gradient-to-r from-pink-100 to-blue-100">
+             <Scale className="w-8 h-8 text-pink-500" />
           </div>
-          <CardTitle className="text-2xl font-bold">LexiSearch AI</CardTitle>
-          <CardDescription>Secure access to legal intelligence tools</CardDescription>
+          <CardTitle className="text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-blue-500">
+            LegalAI
+          </CardTitle>
+          <CardDescription>Smarter Access to Court Records</CardDescription>
         </CardHeader>
         <CardContent>
           {!mfaStep ? (
@@ -101,6 +103,7 @@ export default function LoginPage() {
                   placeholder="admin@global-legal.com"
                   required
                   autoComplete="email"
+                  className="bg-white/50 dark:bg-zinc-800/50"
                 />
               </div>
               <div>
@@ -114,6 +117,7 @@ export default function LoginPage() {
                     placeholder="Enter your password"
                     required
                     autoComplete="current-password"
+                    className="bg-white/50 dark:bg-zinc-800/50"
                   />
                   <button
                     type="button"
@@ -124,7 +128,7 @@ export default function LoginPage() {
                   </button>
                 </div>
               </div>
-              <Button type="submit" disabled={isLoading} className="w-full">
+              <Button type="submit" disabled={isLoading} className="w-full bg-gradient-to-r from-pink-500 to-blue-500 text-white hover:opacity-90 transition-opacity">
                 {isLoading ? <RefreshCw className="w-5 h-5 mr-2 animate-spin" /> : <LogIn className="w-5 h-5 mr-2" />}
                 Sign In
               </Button>
@@ -143,13 +147,13 @@ export default function LoginPage() {
                         type="text"
                         value={mfaCode}
                         onChange={(e) => setMfaCode(e.target.value)}
-                        className="text-center text-2xl tracking-widest"
+                        className="text-center text-2xl tracking-widest bg-white/50 dark:bg-zinc-800/50"
                         placeholder="000000"
                         maxLength={6}
                         required
                     />
                 </div>
-                <Button type="submit" disabled={isLoading || mfaCode.length !== 6} className="w-full">
+                <Button type="submit" disabled={isLoading || mfaCode.length !== 6} className="w-full bg-gradient-to-r from-pink-500 to-blue-500 text-white hover:opacity-90 transition-opacity">
                     {isLoading ? <RefreshCw className="w-5 h-5 mr-2 animate-spin" /> : <Check className="w-5 h-5 mr-2" />}
                     Verify
                 </Button>

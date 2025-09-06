@@ -7,8 +7,8 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
-  title: 'LexiSearch AI',
-  description: 'AI-Powered Legal Intelligence Platform',
+  title: 'LegalAI',
+  description: 'Smarter Access to Court Records',
 };
 
 export default function RootLayout({
@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} font-sans antialiased bg-gradient-to-br from-pink-100 via-purple-50 to-blue-100 dark:from-pink-950/50 dark:via-purple-950/50 dark:to-blue-950/50 text-slate-900 dark:text-slate-50`}>
         <AppProvider>
           {children}
           <Toaster />
