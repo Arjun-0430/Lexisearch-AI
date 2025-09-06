@@ -7,14 +7,16 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { AppSidebar } from '@/components/layout/sidebar';
 import { Header } from '@/components/layout/header';
 import { useAppContext } from '@/context/app-context';
-import { SidebarProvider } from '@/hooks/use-sidebar';
+import { SidebarProvider, useSidebar } from '@/hooks/use-sidebar';
 import { SplashScreen } from '@/components/layout/splash-screen';
 import { Plus } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-export default function AppLayout({ children }: { children: React.ReactNode }) {
+function AppLayoutContent({ children }: { children: React.ReactNode }) {
   const { user } = useAppContext();
   const router = useRouter();
   const [showSplash, setShowSplash] = useState(true);
+  const { collapsed } = useSidebar();
 
   useEffect(() => {
     if (user === null) {
@@ -38,25 +40,35 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   const mainVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+    exit: { opacity: 0, y: -20, transition: { duration: 0.3 } }
   };
 
   return (
-    <SidebarProvider>
-      <AnimatePresence>
-          {showSplash && <SplashScreen />}
-      </AnimatePresence>
       <div className={`relative w-full h-screen overflow-hidden ${showSplash ? 'pointer-events-none' : ''}`}>
-        <div className="grid grid-cols-[auto_1fr] h-full">
-            <AppSidebar />
-            <div className="flex flex-col h-full">
-              <Header />
-              <main className="flex-1 overflow-y-auto p-4 sm:p-6 md:p-8">
-                <motion.div variants={mainVariants} initial="hidden" animate="visible" className="max-w-7xl mx-auto w-full">
+        <AnimatePresence>
+            {showSplash && <SplashScreen />}
+        </AnimatePresence>
+        
+        <AppSidebar />
+        
+        <div className={cn("relative h-full transition-all duration-300 ease-in-out", collapsed ? "pl-14" : "pl-52")}>
+            <Header />
+            <main className="absolute inset-x-0 top-16 bottom-0 overflow-y-auto p-4 sm:p-6 md:p-8">
+              <AnimatePresence mode="wait">
+                <motion.div 
+                    key={router.pathname}
+                    variants={mainVariants} 
+                    initial="hidden" 
+                    animate="visible" 
+                    exit="exit"
+                    className="max-w-7xl mx-auto w-full"
+                >
                     {children}
                 </motion.div>
-              </main>
-            </div>
+              </AnimatePresence>
+            </main>
         </div>
+
         <div className="fixed right-8 bottom-8 z-40">
           <motion.button 
             initial={{ scale: 0.9, opacity: 0 }} 
@@ -69,6 +81,14 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           </motion.button>
         </div>
       </div>
-    </SidebarProvider>
   );
+}
+
+
+export default function AppLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <SidebarProvider>
+      <AppLayoutContent>{children}</AppLayoutContent>
+    </SidebarProvider>
+  )
 }
