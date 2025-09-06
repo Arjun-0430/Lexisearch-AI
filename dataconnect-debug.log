@@ -1,0 +1,24 @@
+I0906 17:08:09.723246   12796 load.go:31] Reloading schema and connectors...
+I0906 17:08:09.793032   12796 control.go:94] [/emulator/lexisearch-ai-service dcdf] UpdateResources(): done
+Schema: sources: schema/schema.gql [524B] 
+Connector "default": sources: example/default.gql [827B] 
+I0906 17:08:09.840560   12796 codegen.go:82] [connector "default" javascriptSdk] Generating sources into "/home/user/studio/src/dataconnect-generated"
+I0906 17:08:09.869085   12796 collector.go:107] schema extensions wrote into "/home/user/studio/dataconnect/.dataconnect/schema"
+Generated sources: prelude.gql [73251B] main/input.gql [33194B] main/relation.gql [13749B] main/query.gql [6544B] main/mutation.gql [15140B] main/implicit.gql [1660B] 
+I0906 17:08:09.870910   12796 collector.go:107] connector "default" javascriptSdk wrote into "/home/user/studio/src/dataconnect-generated"
+Generated sources: react/index.d.ts [1937B] react/package.json [460B] react/index.cjs.js [1708B] react/esm/index.esm.js [1610B] esm/package.json [17B] package.json [863B] react/esm/package.json [17B] react/README.md [27417B] index.d.ts [3556B] esm/index.esm.js [1646B] index.cjs.js [1940B] README.md [18836B] 
+I0906 17:08:09.882994   12796 installsdk.go:55] Package @dataconnect/generated is already installed. Skipping installation
+I0906 17:08:09.884254   12796 load.go:109] Finished reloading
+I0906 17:08:09.898040   12796 dev.go:102] Listening on address (HTTP + gRPC): 127.0.0.1:9399
+I0906 17:08:18.579346   12796 migrate.go:24] Running migration SQL:
+Step 1: CREATE EXTENSION IF NOT EXISTS "uuid-ossp"
+Step 2: CREATE EXI0906 17:08:20.539586   12660 engine.go:171] [/emulator/lexisearch-ai-service 109a] ExecuteGraphqlRead IntrospectionQuery: succeeded. 
+" text NOT NULL, "cnr" text NOT NULL, "date_of_decision" date NULL, "date_of_registration" date NOT NULL, "disposal_nature" text NULL, "district" text NOT NULL, "establishment" text NOT NULL, "next_date" date NULL, "party_name" text NOT NULL, "purpose_name" text NOT NULL, "search_vector" vector(168) NULL, "sr_no" integer NOT NULL, "state" text NOT NULL, PRIMARY KEY ("id"))
+Step 4: CREATE TABLE "public"."state_reference" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "name" text NOT NULL, PRIMARY KEY ("id"))
+Step 5: CREATE TABLE "public"."district_reference" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "state_id" uuid NULL, "name" text NOT NULL, PRIMARY KEY ("id"), CONSTRAINT "district_reference_state_id_fkey" FOREIGN KEY ("state_id") REFERENCES "public"."state_reference" ("id") ON DELETE SET NULL)
+Step 6: CREATE INDEX "district_reference_stateId_idx" ON "public"."district_reference" ("state_id")
+Step 7: CREATE TABLE "public"."establishment_reference" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "district_id" uuid NULL, "name" text NOT NULL, PRIMARY KEY ("id"), CONSTRAINT "establishment_reference_district_id_fkey" FOREIGN KEY ("district_id") REFERENCES "public"."district_reference" ("id") ON DELETE SET NULL)
+Step 8: CREATE INDEX "establishment_reference_districtId_idx" ON "public"."establishment_reference" ("district_id")
+I0906 17:08:19.956262   12796 control.go:94] [/emulator/lexisearch-ai-service d4a5] UpdateResources(): done
+Schema: sources: schema/schema.gql [524B] 
+Connector "default": sources: example/default.gql [827B] 

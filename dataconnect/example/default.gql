@@ -1,0 +1,29 @@
+mutation InsertCaseRecord @auth(level: USER) {
+  caseRecord_insert(data: {caseNumber: "12345", cnr: "CNR123", dateOfRegistration: "2024-01-01", district: "Example District", establishment: "Example Establishment", partyName: "Example Party", purposeName: "Example Purpose", srNo: 1, state: "Example State"})
+}
+
+query GetCaseRecords @auth(level: USER) {
+  caseRecords {
+    id
+    caseNumber
+    cnr
+    dateOfDecision
+    dateOfRegistration
+    disposalNature
+    district
+    establishment
+    nextDate
+    partyName
+    purposeName
+    srNo
+    state
+  }
+}
+
+mutation UpdateCaseRecord @auth(level: USER) {
+  caseRecord_update(id: "550e8400-e29b-41d4-a716-446655440000", data: {partyName: "Updated Party Name"})
+}
+
+mutation DeleteCaseRecord @auth(level: USER) {
+  caseRecord_delete(id: "550e8400-e29b-41d4-a716-446655440000")
+}

@@ -1,0 +1,32 @@
+extend type CaseRecord {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "CaseRecord", purpose: IMPLICIT_KEY_FIELD)
+}
+extend type DistrictReference {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "DistrictReference", purpose: IMPLICIT_KEY_FIELD)
+  """
+  ✨ Implicit foreign key field based on `DistrictReference`.`state`. It must match the value of `StateReference`.`id`. See `@ref` for how to customize it.
+  """
+  stateId: UUID @fdc_generated(from: "DistrictReference.state", purpose: IMPLICIT_REF_FIELD)
+}
+extend type EstablishmentReference {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "EstablishmentReference", purpose: IMPLICIT_KEY_FIELD)
+  """
+  ✨ Implicit foreign key field based on `EstablishmentReference`.`district`. It must match the value of `DistrictReference`.`id`. See `@ref` for how to customize it.
+  """
+  districtId: UUID @fdc_generated(from: "EstablishmentReference.district", purpose: IMPLICIT_REF_FIELD)
+}
+extend type StateReference {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "StateReference", purpose: IMPLICIT_KEY_FIELD)
+}

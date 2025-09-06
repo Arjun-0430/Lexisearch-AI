@@ -1,0 +1,356 @@
+extend type CaseRecord {
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "CaseRecord", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `CaseRecord` table.
+  """
+  _count: Int! @fdc_generated(from: "CaseRecord", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `CaseRecord` table where the `caseNumber` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  caseNumber_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "CaseRecord.caseNumber", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `CaseRecord` table where the `cnr` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  cnr_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "CaseRecord.cnr", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `CaseRecord` table where the `dateOfDecision` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  dateOfDecision_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "CaseRecord.dateOfDecision", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `CaseRecord` table where the `dateOfRegistration` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  dateOfRegistration_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "CaseRecord.dateOfRegistration", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `CaseRecord` table where the `disposalNature` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  disposalNature_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "CaseRecord.disposalNature", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `CaseRecord` table where the `district` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  district_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "CaseRecord.district", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `CaseRecord` table where the `establishment` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  establishment_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "CaseRecord.establishment", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `CaseRecord` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "CaseRecord.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `CaseRecord` table where the `nextDate` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  nextDate_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "CaseRecord.nextDate", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `CaseRecord` table where the `partyName` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  partyName_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "CaseRecord.partyName", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `CaseRecord` table where the `purposeName` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  purposeName_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "CaseRecord.purposeName", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `CaseRecord` table where the `searchVector` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  searchVector_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "CaseRecord.searchVector", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `CaseRecord` table where the `srNo` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  srNo_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "CaseRecord.srNo", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `CaseRecord` table where the `state` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  state_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "CaseRecord.state", purpose: QUERY_COUNT)
+  """
+  ✨ Sum the `srNo` field in the `CaseRecord` table.
+  """
+  srNo_sum(
+    """
+    Set to true to sum the distinct values.
+    """
+    distinct: Boolean = false
+  ): Int @fdc_generated(from: "CaseRecord.srNo", purpose: QUERY_SUM)
+  """
+  ✨ Average the `srNo` field in the `CaseRecord` table.
+  """
+  srNo_avg(
+    """
+    Set to true to average the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "CaseRecord.srNo", purpose: QUERY_AVG)
+  """
+  ✨ Minimum of the `dateOfDecision` field in the `CaseRecord` table.
+  """
+  dateOfDecision_min: Date @fdc_generated(from: "CaseRecord.dateOfDecision", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `dateOfRegistration` field in the `CaseRecord` table.
+  """
+  dateOfRegistration_min: Date @fdc_generated(from: "CaseRecord.dateOfRegistration", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `nextDate` field in the `CaseRecord` table.
+  """
+  nextDate_min: Date @fdc_generated(from: "CaseRecord.nextDate", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `srNo` field in the `CaseRecord` table.
+  """
+  srNo_min: Int @fdc_generated(from: "CaseRecord.srNo", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `dateOfDecision` field in the `CaseRecord` table.
+  """
+  dateOfDecision_max: Date @fdc_generated(from: "CaseRecord.dateOfDecision", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `dateOfRegistration` field in the `CaseRecord` table.
+  """
+  dateOfRegistration_max: Date @fdc_generated(from: "CaseRecord.dateOfRegistration", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `nextDate` field in the `CaseRecord` table.
+  """
+  nextDate_max: Date @fdc_generated(from: "CaseRecord.nextDate", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `srNo` field in the `CaseRecord` table.
+  """
+  srNo_max: Int @fdc_generated(from: "CaseRecord.srNo", purpose: QUERY_MAX)
+}
+extend type DistrictReference {
+  """
+  ✨ List `EstablishmentReference` objects in a one-to-many relationship (where `EstablishmentReference`.`district` is this object).
+  """
+  establishmentReferences_on_district(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: EstablishmentReference_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [EstablishmentReference_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: EstablishmentReference_Having
+  ): [EstablishmentReference!]! @fdc_generated(from: "EstablishmentReference.district", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "DistrictReference", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `DistrictReference` table.
+  """
+  _count: Int! @fdc_generated(from: "DistrictReference", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `DistrictReference` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "DistrictReference.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `DistrictReference` table where the `name` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  name_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "DistrictReference.name", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `DistrictReference` table where the `stateId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  stateId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "DistrictReference.stateId", purpose: QUERY_COUNT)
+}
+extend type EstablishmentReference {
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "EstablishmentReference", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `EstablishmentReference` table.
+  """
+  _count: Int! @fdc_generated(from: "EstablishmentReference", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `EstablishmentReference` table where the `districtId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  districtId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "EstablishmentReference.districtId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `EstablishmentReference` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "EstablishmentReference.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `EstablishmentReference` table where the `name` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  name_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "EstablishmentReference.name", purpose: QUERY_COUNT)
+}
+extend type StateReference {
+  """
+  ✨ List `DistrictReference` objects in a one-to-many relationship (where `DistrictReference`.`state` is this object).
+  """
+  districtReferences_on_state(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: DistrictReference_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [DistrictReference_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: DistrictReference_Having
+  ): [DistrictReference!]! @fdc_generated(from: "DistrictReference.state", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "StateReference", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `StateReference` table.
+  """
+  _count: Int! @fdc_generated(from: "StateReference", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `StateReference` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "StateReference.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `StateReference` table where the `name` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  name_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "StateReference.name", purpose: QUERY_COUNT)
+}

@@ -1,0 +1,29 @@
+type CaseRecord @table {
+  srNo: Int!
+  state: String!
+  district: String!
+  establishment: String!
+  cnr: String!
+  caseNumber: String!
+  partyName: String!
+  dateOfRegistration: Date!
+  purposeName: String!
+  nextDate: Date
+  disposalNature: String
+  dateOfDecision: Date
+  searchVector: Vector @col(size: 168)
+}
+
+type StateReference @table {
+  name: String!
+}
+
+type DistrictReference @table {
+  name: String!
+  state: StateReference
+}
+
+type EstablishmentReference @table {
+  name: String!
+  district: DistrictReference
+}

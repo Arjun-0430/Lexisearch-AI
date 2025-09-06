@@ -1,0 +1,1072 @@
+"""
+✨ `CaseRecord_KeyOutput` returns the primary key fields of table type `CaseRecord`.
+
+It has the same format as `CaseRecord_Key`, but is only used as mutation return value.
+"""
+scalar CaseRecord_KeyOutput
+"""
+✨ `DistrictReference_KeyOutput` returns the primary key fields of table type `DistrictReference`.
+
+It has the same format as `DistrictReference_Key`, but is only used as mutation return value.
+"""
+scalar DistrictReference_KeyOutput
+"""
+✨ `EstablishmentReference_KeyOutput` returns the primary key fields of table type `EstablishmentReference`.
+
+It has the same format as `EstablishmentReference_Key`, but is only used as mutation return value.
+"""
+scalar EstablishmentReference_KeyOutput
+"""
+✨ `StateReference_KeyOutput` returns the primary key fields of table type `StateReference`.
+
+It has the same format as `StateReference_Key`, but is only used as mutation return value.
+"""
+scalar StateReference_KeyOutput
+"""
+✨ Generated data input type for table 'CaseRecord'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input CaseRecord_Data {
+  """
+  ✨ Generated from Field `CaseRecord`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `CaseRecord`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `CaseRecord`.`caseNumber` of type `String!`
+  """
+  caseNumber: String
+  """
+  ✨ `_expr` server value variant of `caseNumber` (✨ Generated from Field `CaseRecord`.`caseNumber` of type `String!`)
+  """
+  caseNumber_expr: String_Expr
+  """
+  ✨ Generated from Field `CaseRecord`.`cnr` of type `String!`
+  """
+  cnr: String
+  """
+  ✨ `_expr` server value variant of `cnr` (✨ Generated from Field `CaseRecord`.`cnr` of type `String!`)
+  """
+  cnr_expr: String_Expr
+  """
+  ✨ Generated from Field `CaseRecord`.`dateOfDecision` of type `Date`
+  """
+  dateOfDecision: Date
+  """
+  ✨ `_date` server value variant of `dateOfDecision` (✨ Generated from Field `CaseRecord`.`dateOfDecision` of type `Date`)
+  """
+  dateOfDecision_date: Date_Relative
+  """
+  ✨ `_expr` server value variant of `dateOfDecision` (✨ Generated from Field `CaseRecord`.`dateOfDecision` of type `Date`)
+  """
+  dateOfDecision_expr: Date_Expr
+  """
+  ✨ `_update` server value variant of `dateOfDecision` (✨ Generated from Field `CaseRecord`.`dateOfDecision` of type `Date`)
+  """
+  dateOfDecision_update: [Date_Update!]
+  """
+  ✨ Generated from Field `CaseRecord`.`dateOfRegistration` of type `Date!`
+  """
+  dateOfRegistration: Date
+  """
+  ✨ `_date` server value variant of `dateOfRegistration` (✨ Generated from Field `CaseRecord`.`dateOfRegistration` of type `Date!`)
+  """
+  dateOfRegistration_date: Date_Relative
+  """
+  ✨ `_expr` server value variant of `dateOfRegistration` (✨ Generated from Field `CaseRecord`.`dateOfRegistration` of type `Date!`)
+  """
+  dateOfRegistration_expr: Date_Expr
+  """
+  ✨ `_update` server value variant of `dateOfRegistration` (✨ Generated from Field `CaseRecord`.`dateOfRegistration` of type `Date!`)
+  """
+  dateOfRegistration_update: [Date_Update!]
+  """
+  ✨ Generated from Field `CaseRecord`.`disposalNature` of type `String`
+  """
+  disposalNature: String
+  """
+  ✨ `_expr` server value variant of `disposalNature` (✨ Generated from Field `CaseRecord`.`disposalNature` of type `String`)
+  """
+  disposalNature_expr: String_Expr
+  """
+  ✨ Generated from Field `CaseRecord`.`district` of type `String!`
+  """
+  district: String
+  """
+  ✨ `_expr` server value variant of `district` (✨ Generated from Field `CaseRecord`.`district` of type `String!`)
+  """
+  district_expr: String_Expr
+  """
+  ✨ Generated from Field `CaseRecord`.`establishment` of type `String!`
+  """
+  establishment: String
+  """
+  ✨ `_expr` server value variant of `establishment` (✨ Generated from Field `CaseRecord`.`establishment` of type `String!`)
+  """
+  establishment_expr: String_Expr
+  """
+  ✨ Generated from Field `CaseRecord`.`nextDate` of type `Date`
+  """
+  nextDate: Date
+  """
+  ✨ `_date` server value variant of `nextDate` (✨ Generated from Field `CaseRecord`.`nextDate` of type `Date`)
+  """
+  nextDate_date: Date_Relative
+  """
+  ✨ `_expr` server value variant of `nextDate` (✨ Generated from Field `CaseRecord`.`nextDate` of type `Date`)
+  """
+  nextDate_expr: Date_Expr
+  """
+  ✨ `_update` server value variant of `nextDate` (✨ Generated from Field `CaseRecord`.`nextDate` of type `Date`)
+  """
+  nextDate_update: [Date_Update!]
+  """
+  ✨ Generated from Field `CaseRecord`.`partyName` of type `String!`
+  """
+  partyName: String
+  """
+  ✨ `_expr` server value variant of `partyName` (✨ Generated from Field `CaseRecord`.`partyName` of type `String!`)
+  """
+  partyName_expr: String_Expr
+  """
+  ✨ Generated from Field `CaseRecord`.`purposeName` of type `String!`
+  """
+  purposeName: String
+  """
+  ✨ `_expr` server value variant of `purposeName` (✨ Generated from Field `CaseRecord`.`purposeName` of type `String!`)
+  """
+  purposeName_expr: String_Expr
+  """
+  ✨ Generated from Field `CaseRecord`.`searchVector` of type `Vector`
+  """
+  searchVector: Vector
+  """
+  ✨ `_embed` server value variant of `searchVector` (✨ Generated from Field `CaseRecord`.`searchVector` of type `Vector`)
+  """
+  searchVector_embed: Vector_Embed
+  """
+  ✨ Generated from Field `CaseRecord`.`srNo` of type `Int!`
+  """
+  srNo: Int
+  """
+  ✨ `_expr` server value variant of `srNo` (✨ Generated from Field `CaseRecord`.`srNo` of type `Int!`)
+  """
+  srNo_expr: Int_Expr
+  """
+  ✨ `_update` server value variant of `srNo` (✨ Generated from Field `CaseRecord`.`srNo` of type `Int!`)
+  """
+  srNo_update: [Int_Update!]
+  """
+  ✨ Generated from Field `CaseRecord`.`state` of type `String!`
+  """
+  state: String
+  """
+  ✨ `_expr` server value variant of `state` (✨ Generated from Field `CaseRecord`.`state` of type `String!`)
+  """
+  state_expr: String_Expr
+}
+"""
+✨ Generated filter input type for table 'CaseRecord'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input CaseRecord_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [CaseRecord_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: CaseRecord_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [CaseRecord_Filter!]
+  """
+  ✨ Generated from Field `CaseRecord`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`caseNumber` of type `String!`
+  """
+  caseNumber: String_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`cnr` of type `String!`
+  """
+  cnr: String_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`dateOfDecision` of type `Date`
+  """
+  dateOfDecision: Date_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`dateOfRegistration` of type `Date!`
+  """
+  dateOfRegistration: Date_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`disposalNature` of type `String`
+  """
+  disposalNature: String_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`district` of type `String!`
+  """
+  district: String_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`establishment` of type `String!`
+  """
+  establishment: String_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`nextDate` of type `Date`
+  """
+  nextDate: Date_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`partyName` of type `String!`
+  """
+  partyName: String_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`purposeName` of type `String!`
+  """
+  purposeName: String_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`searchVector` of type `Vector`
+  """
+  searchVector: Vector_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`srNo` of type `Int!`
+  """
+  srNo: Int_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`state` of type `String!`
+  """
+  state: String_Filter
+}
+"""
+✨ Generated first-row input type for table 'CaseRecord'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input CaseRecord_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [CaseRecord_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: CaseRecord_Filter
+}
+"""
+✨ Generated having input type for table 'CaseRecord'. This input allows you to filter groups during aggregate queries using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input CaseRecord_Having {
+  """
+  Apply multiple Having conditions using `AND` logic.
+  """
+  _and: [CaseRecord_Having!]
+  """
+  Whether to apply DISTINCT to the aggregate function.
+  """
+  _distinct: Boolean
+  """
+  Negate the result of the provided Having condition.
+  """
+  _not: CaseRecord_Having
+  """
+  Apply multiple Having conditions using `OR` logic.
+  """
+  _or: [CaseRecord_Having!]
+  """
+  ✨ Generated from Field `CaseRecord`.`_count` of type `Int!`
+  """
+  _count: Int_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`caseNumber_count` of type `Int!`
+  """
+  caseNumber_count: Int_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`cnr_count` of type `Int!`
+  """
+  cnr_count: Int_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`dateOfDecision_count` of type `Int!`
+  """
+  dateOfDecision_count: Int_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`dateOfRegistration_count` of type `Int!`
+  """
+  dateOfRegistration_count: Int_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`disposalNature_count` of type `Int!`
+  """
+  disposalNature_count: Int_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`district_count` of type `Int!`
+  """
+  district_count: Int_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`establishment_count` of type `Int!`
+  """
+  establishment_count: Int_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`id_count` of type `Int!`
+  """
+  id_count: Int_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`nextDate_count` of type `Int!`
+  """
+  nextDate_count: Int_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`partyName_count` of type `Int!`
+  """
+  partyName_count: Int_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`purposeName_count` of type `Int!`
+  """
+  purposeName_count: Int_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`searchVector_count` of type `Int!`
+  """
+  searchVector_count: Int_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`srNo_count` of type `Int!`
+  """
+  srNo_count: Int_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`state_count` of type `Int!`
+  """
+  state_count: Int_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`srNo_sum` of type `Int`
+  """
+  srNo_sum: Int_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`srNo_avg` of type `Float`
+  """
+  srNo_avg: Float_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`dateOfDecision_min` of type `Date`
+  """
+  dateOfDecision_min: Date_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`dateOfRegistration_min` of type `Date`
+  """
+  dateOfRegistration_min: Date_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`nextDate_min` of type `Date`
+  """
+  nextDate_min: Date_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`srNo_min` of type `Int`
+  """
+  srNo_min: Int_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`dateOfDecision_max` of type `Date`
+  """
+  dateOfDecision_max: Date_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`dateOfRegistration_max` of type `Date`
+  """
+  dateOfRegistration_max: Date_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`nextDate_max` of type `Date`
+  """
+  nextDate_max: Date_Filter
+  """
+  ✨ Generated from Field `CaseRecord`.`srNo_max` of type `Int`
+  """
+  srNo_max: Int_Filter
+}
+"""
+✨ Generated key input type for table 'CaseRecord'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input CaseRecord_Key {
+  """
+  ✨ Generated from Field `CaseRecord`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `CaseRecord`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'CaseRecord'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input CaseRecord_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: CaseRecord_Filter
+}
+"""
+✨ Generated order input type for table 'CaseRecord'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input CaseRecord_Order {
+  """
+  ✨ Generated from Field `CaseRecord`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`caseNumber` of type `String!`
+  """
+  caseNumber: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`cnr` of type `String!`
+  """
+  cnr: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`dateOfDecision` of type `Date`
+  """
+  dateOfDecision: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`dateOfRegistration` of type `Date!`
+  """
+  dateOfRegistration: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`disposalNature` of type `String`
+  """
+  disposalNature: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`district` of type `String!`
+  """
+  district: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`establishment` of type `String!`
+  """
+  establishment: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`nextDate` of type `Date`
+  """
+  nextDate: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`partyName` of type `String!`
+  """
+  partyName: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`purposeName` of type `String!`
+  """
+  purposeName: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`searchVector` of type `Vector`
+  """
+  searchVector: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`srNo` of type `Int!`
+  """
+  srNo: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`state` of type `String!`
+  """
+  state: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`_count` of type `Int!`
+  """
+  _count: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`caseNumber_count` of type `Int!`
+  """
+  caseNumber_count: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`cnr_count` of type `Int!`
+  """
+  cnr_count: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`dateOfDecision_count` of type `Int!`
+  """
+  dateOfDecision_count: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`dateOfRegistration_count` of type `Int!`
+  """
+  dateOfRegistration_count: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`disposalNature_count` of type `Int!`
+  """
+  disposalNature_count: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`district_count` of type `Int!`
+  """
+  district_count: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`establishment_count` of type `Int!`
+  """
+  establishment_count: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`id_count` of type `Int!`
+  """
+  id_count: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`nextDate_count` of type `Int!`
+  """
+  nextDate_count: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`partyName_count` of type `Int!`
+  """
+  partyName_count: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`purposeName_count` of type `Int!`
+  """
+  purposeName_count: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`searchVector_count` of type `Int!`
+  """
+  searchVector_count: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`srNo_count` of type `Int!`
+  """
+  srNo_count: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`state_count` of type `Int!`
+  """
+  state_count: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`srNo_sum` of type `Int`
+  """
+  srNo_sum: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`srNo_avg` of type `Float`
+  """
+  srNo_avg: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`dateOfDecision_min` of type `Date`
+  """
+  dateOfDecision_min: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`dateOfRegistration_min` of type `Date`
+  """
+  dateOfRegistration_min: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`nextDate_min` of type `Date`
+  """
+  nextDate_min: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`srNo_min` of type `Int`
+  """
+  srNo_min: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`dateOfDecision_max` of type `Date`
+  """
+  dateOfDecision_max: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`dateOfRegistration_max` of type `Date`
+  """
+  dateOfRegistration_max: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`nextDate_max` of type `Date`
+  """
+  nextDate_max: OrderDirection
+  """
+  ✨ Generated from Field `CaseRecord`.`srNo_max` of type `Int`
+  """
+  srNo_max: OrderDirection
+}
+"""
+✨ Generated data input type for table 'DistrictReference'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input DistrictReference_Data {
+  """
+  ✨ Generated from Field `DistrictReference`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `DistrictReference`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `DistrictReference`.`stateId` of type `UUID`
+  """
+  stateId: UUID
+  """
+  ✨ `_expr` server value variant of `stateId` (✨ Generated from Field `DistrictReference`.`stateId` of type `UUID`)
+  """
+  stateId_expr: UUID_Expr
+  """
+  ✨ Generated from Field `DistrictReference`.`state` of type `StateReference`
+  """
+  state: StateReference_Key
+  """
+  ✨ Generated from Field `DistrictReference`.`name` of type `String!`
+  """
+  name: String
+  """
+  ✨ `_expr` server value variant of `name` (✨ Generated from Field `DistrictReference`.`name` of type `String!`)
+  """
+  name_expr: String_Expr
+}
+"""
+✨ Generated filter input type for table 'DistrictReference'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input DistrictReference_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [DistrictReference_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: DistrictReference_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [DistrictReference_Filter!]
+  """
+  ✨ Generated from Field `DistrictReference`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `DistrictReference`.`stateId` of type `UUID`
+  """
+  stateId: UUID_Filter
+  """
+  ✨ Generated from Field `DistrictReference`.`state` of type `StateReference`
+  """
+  state: StateReference_Filter
+  """
+  ✨ Generated from Field `DistrictReference`.`name` of type `String!`
+  """
+  name: String_Filter
+  """
+  ✨ Generated from Field `DistrictReference`.`establishmentReferences_on_district` of type `[EstablishmentReference!]!`
+  """
+  establishmentReferences_on_district: EstablishmentReference_ListFilter
+}
+"""
+✨ Generated first-row input type for table 'DistrictReference'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input DistrictReference_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [DistrictReference_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: DistrictReference_Filter
+}
+"""
+✨ Generated having input type for table 'DistrictReference'. This input allows you to filter groups during aggregate queries using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input DistrictReference_Having {
+  """
+  Apply multiple Having conditions using `AND` logic.
+  """
+  _and: [DistrictReference_Having!]
+  """
+  Whether to apply DISTINCT to the aggregate function.
+  """
+  _distinct: Boolean
+  """
+  Negate the result of the provided Having condition.
+  """
+  _not: DistrictReference_Having
+  """
+  Apply multiple Having conditions using `OR` logic.
+  """
+  _or: [DistrictReference_Having!]
+  """
+  ✨ Generated from Field `DistrictReference`.`_count` of type `Int!`
+  """
+  _count: Int_Filter
+  """
+  ✨ Generated from Field `DistrictReference`.`id_count` of type `Int!`
+  """
+  id_count: Int_Filter
+  """
+  ✨ Generated from Field `DistrictReference`.`name_count` of type `Int!`
+  """
+  name_count: Int_Filter
+  """
+  ✨ Generated from Field `DistrictReference`.`stateId_count` of type `Int!`
+  """
+  stateId_count: Int_Filter
+}
+"""
+✨ Generated key input type for table 'DistrictReference'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input DistrictReference_Key {
+  """
+  ✨ Generated from Field `DistrictReference`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `DistrictReference`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'DistrictReference'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input DistrictReference_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: DistrictReference_Filter
+}
+"""
+✨ Generated order input type for table 'DistrictReference'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input DistrictReference_Order {
+  """
+  ✨ Generated from Field `DistrictReference`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `DistrictReference`.`stateId` of type `UUID`
+  """
+  stateId: OrderDirection
+  """
+  ✨ Generated from Field `DistrictReference`.`state` of type `StateReference`
+  """
+  state: StateReference_Order
+  """
+  ✨ Generated from Field `DistrictReference`.`name` of type `String!`
+  """
+  name: OrderDirection
+  """
+  ✨ Generated from Field `DistrictReference`.`_count` of type `Int!`
+  """
+  _count: OrderDirection
+  """
+  ✨ Generated from Field `DistrictReference`.`id_count` of type `Int!`
+  """
+  id_count: OrderDirection
+  """
+  ✨ Generated from Field `DistrictReference`.`name_count` of type `Int!`
+  """
+  name_count: OrderDirection
+  """
+  ✨ Generated from Field `DistrictReference`.`stateId_count` of type `Int!`
+  """
+  stateId_count: OrderDirection
+}
+"""
+✨ Generated data input type for table 'EstablishmentReference'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input EstablishmentReference_Data {
+  """
+  ✨ Generated from Field `EstablishmentReference`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `EstablishmentReference`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `EstablishmentReference`.`districtId` of type `UUID`
+  """
+  districtId: UUID
+  """
+  ✨ `_expr` server value variant of `districtId` (✨ Generated from Field `EstablishmentReference`.`districtId` of type `UUID`)
+  """
+  districtId_expr: UUID_Expr
+  """
+  ✨ Generated from Field `EstablishmentReference`.`district` of type `DistrictReference`
+  """
+  district: DistrictReference_Key
+  """
+  ✨ Generated from Field `EstablishmentReference`.`name` of type `String!`
+  """
+  name: String
+  """
+  ✨ `_expr` server value variant of `name` (✨ Generated from Field `EstablishmentReference`.`name` of type `String!`)
+  """
+  name_expr: String_Expr
+}
+"""
+✨ Generated filter input type for table 'EstablishmentReference'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input EstablishmentReference_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [EstablishmentReference_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: EstablishmentReference_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [EstablishmentReference_Filter!]
+  """
+  ✨ Generated from Field `EstablishmentReference`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `EstablishmentReference`.`districtId` of type `UUID`
+  """
+  districtId: UUID_Filter
+  """
+  ✨ Generated from Field `EstablishmentReference`.`district` of type `DistrictReference`
+  """
+  district: DistrictReference_Filter
+  """
+  ✨ Generated from Field `EstablishmentReference`.`name` of type `String!`
+  """
+  name: String_Filter
+}
+"""
+✨ Generated first-row input type for table 'EstablishmentReference'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input EstablishmentReference_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [EstablishmentReference_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: EstablishmentReference_Filter
+}
+"""
+✨ Generated having input type for table 'EstablishmentReference'. This input allows you to filter groups during aggregate queries using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input EstablishmentReference_Having {
+  """
+  Apply multiple Having conditions using `AND` logic.
+  """
+  _and: [EstablishmentReference_Having!]
+  """
+  Whether to apply DISTINCT to the aggregate function.
+  """
+  _distinct: Boolean
+  """
+  Negate the result of the provided Having condition.
+  """
+  _not: EstablishmentReference_Having
+  """
+  Apply multiple Having conditions using `OR` logic.
+  """
+  _or: [EstablishmentReference_Having!]
+  """
+  ✨ Generated from Field `EstablishmentReference`.`_count` of type `Int!`
+  """
+  _count: Int_Filter
+  """
+  ✨ Generated from Field `EstablishmentReference`.`districtId_count` of type `Int!`
+  """
+  districtId_count: Int_Filter
+  """
+  ✨ Generated from Field `EstablishmentReference`.`id_count` of type `Int!`
+  """
+  id_count: Int_Filter
+  """
+  ✨ Generated from Field `EstablishmentReference`.`name_count` of type `Int!`
+  """
+  name_count: Int_Filter
+}
+"""
+✨ Generated key input type for table 'EstablishmentReference'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input EstablishmentReference_Key {
+  """
+  ✨ Generated from Field `EstablishmentReference`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `EstablishmentReference`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'EstablishmentReference'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input EstablishmentReference_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: EstablishmentReference_Filter
+}
+"""
+✨ Generated order input type for table 'EstablishmentReference'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input EstablishmentReference_Order {
+  """
+  ✨ Generated from Field `EstablishmentReference`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `EstablishmentReference`.`districtId` of type `UUID`
+  """
+  districtId: OrderDirection
+  """
+  ✨ Generated from Field `EstablishmentReference`.`district` of type `DistrictReference`
+  """
+  district: DistrictReference_Order
+  """
+  ✨ Generated from Field `EstablishmentReference`.`name` of type `String!`
+  """
+  name: OrderDirection
+  """
+  ✨ Generated from Field `EstablishmentReference`.`_count` of type `Int!`
+  """
+  _count: OrderDirection
+  """
+  ✨ Generated from Field `EstablishmentReference`.`districtId_count` of type `Int!`
+  """
+  districtId_count: OrderDirection
+  """
+  ✨ Generated from Field `EstablishmentReference`.`id_count` of type `Int!`
+  """
+  id_count: OrderDirection
+  """
+  ✨ Generated from Field `EstablishmentReference`.`name_count` of type `Int!`
+  """
+  name_count: OrderDirection
+}
+"""
+✨ Generated data input type for table 'StateReference'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input StateReference_Data {
+  """
+  ✨ Generated from Field `StateReference`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `StateReference`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `StateReference`.`name` of type `String!`
+  """
+  name: String
+  """
+  ✨ `_expr` server value variant of `name` (✨ Generated from Field `StateReference`.`name` of type `String!`)
+  """
+  name_expr: String_Expr
+}
+"""
+✨ Generated filter input type for table 'StateReference'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input StateReference_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [StateReference_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: StateReference_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [StateReference_Filter!]
+  """
+  ✨ Generated from Field `StateReference`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `StateReference`.`name` of type `String!`
+  """
+  name: String_Filter
+  """
+  ✨ Generated from Field `StateReference`.`districtReferences_on_state` of type `[DistrictReference!]!`
+  """
+  districtReferences_on_state: DistrictReference_ListFilter
+}
+"""
+✨ Generated first-row input type for table 'StateReference'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input StateReference_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [StateReference_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: StateReference_Filter
+}
+"""
+✨ Generated having input type for table 'StateReference'. This input allows you to filter groups during aggregate queries using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input StateReference_Having {
+  """
+  Apply multiple Having conditions using `AND` logic.
+  """
+  _and: [StateReference_Having!]
+  """
+  Whether to apply DISTINCT to the aggregate function.
+  """
+  _distinct: Boolean
+  """
+  Negate the result of the provided Having condition.
+  """
+  _not: StateReference_Having
+  """
+  Apply multiple Having conditions using `OR` logic.
+  """
+  _or: [StateReference_Having!]
+  """
+  ✨ Generated from Field `StateReference`.`_count` of type `Int!`
+  """
+  _count: Int_Filter
+  """
+  ✨ Generated from Field `StateReference`.`id_count` of type `Int!`
+  """
+  id_count: Int_Filter
+  """
+  ✨ Generated from Field `StateReference`.`name_count` of type `Int!`
+  """
+  name_count: Int_Filter
+}
+"""
+✨ Generated key input type for table 'StateReference'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input StateReference_Key {
+  """
+  ✨ Generated from Field `StateReference`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `StateReference`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'StateReference'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input StateReference_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: StateReference_Filter
+}
+"""
+✨ Generated order input type for table 'StateReference'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input StateReference_Order {
+  """
+  ✨ Generated from Field `StateReference`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `StateReference`.`name` of type `String!`
+  """
+  name: OrderDirection
+  """
+  ✨ Generated from Field `StateReference`.`_count` of type `Int!`
+  """
+  _count: OrderDirection
+  """
+  ✨ Generated from Field `StateReference`.`id_count` of type `Int!`
+  """
+  id_count: OrderDirection
+  """
+  ✨ Generated from Field `StateReference`.`name_count` of type `Int!`
+  """
+  name_count: OrderDirection
+}

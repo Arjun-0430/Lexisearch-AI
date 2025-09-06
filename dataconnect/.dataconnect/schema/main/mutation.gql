@@ -1,0 +1,450 @@
+extend type Mutation {
+  """
+  ✨ Insert a single `CaseRecord` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  caseRecord_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: CaseRecord_Data!
+  ): CaseRecord_KeyOutput! @fdc_generated(from: "CaseRecord", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `DistrictReference` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  districtReference_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: DistrictReference_Data!
+  ): DistrictReference_KeyOutput! @fdc_generated(from: "DistrictReference", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `EstablishmentReference` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  establishmentReference_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: EstablishmentReference_Data!
+  ): EstablishmentReference_KeyOutput! @fdc_generated(from: "EstablishmentReference", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `StateReference` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  stateReference_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: StateReference_Data!
+  ): StateReference_KeyOutput! @fdc_generated(from: "StateReference", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert `CaseRecord` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  caseRecord_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [CaseRecord_Data!]!
+  ): [CaseRecord_KeyOutput!]! @fdc_generated(from: "CaseRecord", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `DistrictReference` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  districtReference_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [DistrictReference_Data!]!
+  ): [DistrictReference_KeyOutput!]! @fdc_generated(from: "DistrictReference", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `EstablishmentReference` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  establishmentReference_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [EstablishmentReference_Data!]!
+  ): [EstablishmentReference_KeyOutput!]! @fdc_generated(from: "EstablishmentReference", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `StateReference` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  stateReference_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [StateReference_Data!]!
+  ): [StateReference_KeyOutput!]! @fdc_generated(from: "StateReference", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert or update a single `CaseRecord` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `CaseRecord`.
+  """
+  caseRecord_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: CaseRecord_Data!
+  ): CaseRecord_KeyOutput! @fdc_generated(from: "CaseRecord", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `DistrictReference` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `DistrictReference`.
+  """
+  districtReference_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: DistrictReference_Data!
+  ): DistrictReference_KeyOutput! @fdc_generated(from: "DistrictReference", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `EstablishmentReference` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `EstablishmentReference`.
+  """
+  establishmentReference_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: EstablishmentReference_Data!
+  ): EstablishmentReference_KeyOutput! @fdc_generated(from: "EstablishmentReference", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `StateReference` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `StateReference`.
+  """
+  stateReference_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: StateReference_Data!
+  ): StateReference_KeyOutput! @fdc_generated(from: "StateReference", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update `CaseRecord` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `CaseRecord`.
+  """
+  caseRecord_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [CaseRecord_Data!]!
+  ): [CaseRecord_KeyOutput!]! @fdc_generated(from: "CaseRecord", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `DistrictReference` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `DistrictReference`.
+  """
+  districtReference_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [DistrictReference_Data!]!
+  ): [DistrictReference_KeyOutput!]! @fdc_generated(from: "DistrictReference", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `EstablishmentReference` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `EstablishmentReference`.
+  """
+  establishmentReference_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [EstablishmentReference_Data!]!
+  ): [EstablishmentReference_KeyOutput!]! @fdc_generated(from: "EstablishmentReference", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `StateReference` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `StateReference`.
+  """
+  stateReference_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [StateReference_Data!]!
+  ): [StateReference_KeyOutput!]! @fdc_generated(from: "StateReference", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Update a single `CaseRecord` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `CaseRecord` or `null` if not found.
+  """
+  caseRecord_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: CaseRecord_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: CaseRecord_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: CaseRecord_Data!
+  ): CaseRecord_KeyOutput @fdc_generated(from: "CaseRecord", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `DistrictReference` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `DistrictReference` or `null` if not found.
+  """
+  districtReference_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: DistrictReference_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: DistrictReference_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: DistrictReference_Data!
+  ): DistrictReference_KeyOutput @fdc_generated(from: "DistrictReference", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `EstablishmentReference` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `EstablishmentReference` or `null` if not found.
+  """
+  establishmentReference_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: EstablishmentReference_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: EstablishmentReference_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: EstablishmentReference_Data!
+  ): EstablishmentReference_KeyOutput @fdc_generated(from: "EstablishmentReference", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `StateReference` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `StateReference` or `null` if not found.
+  """
+  stateReference_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: StateReference_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: StateReference_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: StateReference_Data!
+  ): StateReference_KeyOutput @fdc_generated(from: "StateReference", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update `CaseRecord` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  caseRecord_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: CaseRecord_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: CaseRecord_Data!
+  ): Int! @fdc_generated(from: "CaseRecord", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `DistrictReference` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  districtReference_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: DistrictReference_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: DistrictReference_Data!
+  ): Int! @fdc_generated(from: "DistrictReference", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `EstablishmentReference` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  establishmentReference_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: EstablishmentReference_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: EstablishmentReference_Data!
+  ): Int! @fdc_generated(from: "EstablishmentReference", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `StateReference` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  stateReference_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: StateReference_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: StateReference_Data!
+  ): Int! @fdc_generated(from: "StateReference", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Delete a single `CaseRecord` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  caseRecord_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: CaseRecord_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: CaseRecord_FirstRow
+  ): CaseRecord_KeyOutput @fdc_generated(from: "CaseRecord", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `DistrictReference` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  districtReference_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: DistrictReference_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: DistrictReference_FirstRow
+  ): DistrictReference_KeyOutput @fdc_generated(from: "DistrictReference", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `EstablishmentReference` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  establishmentReference_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: EstablishmentReference_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: EstablishmentReference_FirstRow
+  ): EstablishmentReference_KeyOutput @fdc_generated(from: "EstablishmentReference", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `StateReference` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  stateReference_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: StateReference_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: StateReference_FirstRow
+  ): StateReference_KeyOutput @fdc_generated(from: "StateReference", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete `CaseRecord` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  caseRecord_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: CaseRecord_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "CaseRecord", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `DistrictReference` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  districtReference_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: DistrictReference_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "DistrictReference", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `EstablishmentReference` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  establishmentReference_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: EstablishmentReference_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "EstablishmentReference", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `StateReference` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  stateReference_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: StateReference_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "StateReference", purpose: DELETE_MULTIPLE)
+}
