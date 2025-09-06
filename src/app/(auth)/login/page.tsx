@@ -166,7 +166,7 @@ export default function LoginPage() {
              <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1">
                     <AccordionTrigger className="text-xs font-bold justify-center">Show Test Credentials</AccordionTrigger>
-                    <AccordionContent className="text-left">
+                    <AccordionContent className="text-left text-foreground">
                         <p className="font-bold">Platform Super Admin:</p>
                         <p>super.admin@lexisearch.ai / superpass</p>
                         <br/>
