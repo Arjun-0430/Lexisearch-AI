@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from 'react';
@@ -9,6 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { useToast } from '@/hooks/use-toast';
 import { useAppContext } from '@/context/app-context';
 import { loginAction } from './actions';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -100,7 +102,7 @@ export default function LoginPage() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="admin@global-legal.com"
+                  placeholder="super.admin@lexisearch.ai"
                   required
                   autoComplete="email"
                   className="bg-white/50 dark:bg-zinc-800/50"
@@ -161,10 +163,27 @@ export default function LoginPage() {
             </form>
           )}
            <div className="mt-6 text-center text-xs text-muted-foreground">
-             <p className="font-bold">Test Credentials:</p>
-             <p>admin@global-legal.com / password123</p>
-             <p>superadmin@global-legal.com / superpass123</p>
-             <p>user@global-legal.com / userpass123</p>
+             <Accordion type="single" collapsible className="w-full">
+                <AccordionItem value="item-1">
+                    <AccordionTrigger className="text-xs font-bold justify-center">Show Test Credentials</AccordionTrigger>
+                    <AccordionContent className="text-left">
+                        <p className="font-bold">Platform Super Admin:</p>
+                        <p>super.admin@lexisearch.ai / superpass</p>
+                        <br/>
+                        <p className="font-bold">TATA Customer Super Admin:</p>
+                        <p>admin@tata.com / tatapass</p>
+                        <br/>
+                        <p className="font-bold">TATA Legal Advisor:</p>
+                        <p>legal@tata.com / legalpass</p>
+                        <br/>
+                        <p className="font-bold">Reliance HR Advisor:</p>
+                        <p>hr@reliance.com / hrpass</p>
+                        <br/>
+                         <p className="font-bold">Apple User:</p>
+                        <p>user@apple.com / userpass</p>
+                    </AccordionContent>
+                </AccordionItem>
+             </Accordion>
            </div>
         </CardContent>
       </Card>

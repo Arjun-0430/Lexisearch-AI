@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { getTenants } from "@/lib/data";
-import { Edit3, Plus } from "lucide-react";
+import { Edit3, Plus, Trash2 } from "lucide-react";
 import { motion } from 'framer-motion';
 
 export default function TenantManagementPage() {
@@ -83,9 +83,12 @@ export default function TenantManagementPage() {
                                             <TableCell>
                                                 <StatusBadge status={tenant.status} />
                                             </TableCell>
-                                            <TableCell>
+                                            <TableCell className="flex gap-2">
                                                 <Button variant="ghost" size="icon">
                                                     <Edit3 className="h-4 w-4"/>
+                                                </Button>
+                                                <Button variant="ghost" size="icon" className="text-destructive">
+                                                    <Trash2 className="h-4 w-4"/>
                                                 </Button>
                                             </TableCell>
                                         </TableRow>

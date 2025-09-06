@@ -1,12 +1,24 @@
 
+
+export type Role = 
+  | 'Platform Super Admin'
+  | 'Customer Super Admin'
+  | 'Admin'
+  | 'Legal Advisor'
+  | 'HR Advisor'
+  | 'Finance Advisor'
+  | 'Purchase Advisor'
+  | 'Administrative Advisor'
+  | 'User';
+
 export type User = {
   id: number;
   name: string;
   email: string;
-  role: 'User' | 'Administrator';
+  role: Role;
   avatar: string;
-  tenant: Tenant;
-  isSuperAdmin: boolean;
+  tenantId: number | null;
+  tenant: Tenant | null;
 };
 
 export type Tenant = {

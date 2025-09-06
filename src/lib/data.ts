@@ -1,25 +1,58 @@
-import type { Case, Tenant, User, RiskProfile, Invoice, AIModel, SystemMetrics } from './types';
 
+import type { Case, Tenant, User, RiskProfile, Invoice, AIModel, SystemMetrics, Role } from './types';
+
+// Mock Data
 const tenants: Tenant[] = [
-  { id: 1, name: 'Global Legal Services', domain: 'global-legal.com', status: 'Active', users: 1247 },
-  { id: 2, name: 'Corporate Defense Partners', domain: 'corp-defense.com', status: 'Active', users: 892 },
-  { id: 3, name: 'International Law Group', domain: 'intl-law.com', status: 'Active', users: 2156 },
-  { id: 4, name: 'Regional Legal Associates', domain: 'regional-law.com', status: 'Inactive', users: 456 },
+  { id: 1, name: 'TATA Motors', domain: 'tata.com', status: 'Active', users: 1500 },
+  { id: 2, name: 'Reliance', domain: 'reliance.com', status: 'Active', users: 2500 },
+  { id: 3, name: 'Mahindra', domain: 'mahindra.com', status: 'Active', users: 1200 },
+  { id: 4, name: 'Birla', domain: 'birla.com', status: 'Inactive', users: 800 },
+  { id: 5, name: 'Apple', domain: 'apple.com', status: 'Active', users: 10000 },
+  { id: 6, name: 'Virgin', domain: 'virgin.com', status: 'Active', users: 3000 },
+  { id: 7, name: 'Oracle', domain: 'oracle.com', status: 'Active', users: 5000 },
+  { id: 8, name: 'Microsoft', domain: 'microsoft.com', status: 'Active', users: 12000 },
+  { id: 9, name: 'Nvidia', domain: 'nvidia.com', status: 'Active', users: 4000 },
 ];
 
 const users: Omit<User, 'tenant'>[] = [
-  { id: 1, name: 'Admin User', email: 'admin@global-legal.com', role: 'Administrator', avatar: 'AU', isSuperAdmin: false },
-  { id: 2, name: 'Super Admin', email: 'superadmin@global-legal.com', role: 'Administrator', avatar: 'SA', isSuperAdmin: true },
-  { id: 3, name: 'Regular User', email: 'user@global-legal.com', role: 'User', avatar: 'RU', isSuperAdmin: false },
+  // Platform Super Admin (no tenant)
+  { id: 1, name: 'Platform Super Admin', email: 'super.admin@lexisearch.ai', role: 'Platform Super Admin', avatar: 'PA', tenantId: null },
+  
+  // TATA Motors Tenant
+  { id: 2, name: 'TATA Admin', email: 'admin@tata.com', role: 'Customer Super Admin', avatar: 'TA', tenantId: 1 },
+  { id: 3, name: 'Legal Advisor TATA', email: 'legal@tata.com', role: 'Legal Advisor', avatar: 'LL', tenantId: 1 },
+
+  // Reliance Tenant
+  { id: 4, name: 'Reliance HR', email: 'hr@reliance.com', role: 'HR Advisor', avatar: 'RH', tenantId: 2 },
+  
+  // Apple Tenant
+  { id: 5, name: 'Apple User', email: 'user@apple.com', role: 'User', avatar: 'AU', tenantId: 5 },
 ];
+
+export const passwords: Record<string, string> = {
+    'super.admin@lexisearch.ai': 'superpass',
+    'admin@tata.com': 'tatapass',
+    'legal@tata.com': 'legalpass',
+    'hr@reliance.com': 'hrpass',
+    'user@apple.com': 'userpass'
+};
+
 
 export const getTenants = (): Tenant[] => tenants;
 
-export const getUsers = (): User[] => users.map(u => ({ ...u, tenant: tenants[0] }));
+export const getUsers = (): User[] => {
+    return users.map(u => {
+        const tenant = u.tenantId ? tenants.find(t => t.id === u.tenantId) : null;
+        return { ...u, tenant: tenant! }; // Using non-null assertion because we control the mock data
+    });
+}
 
 export const findUserByEmail = (email: string): User | undefined => {
   const user = users.find(u => u.email === email);
-  return user ? { ...user, tenant: tenants[0] } : undefined;
+  if (!user) return undefined;
+  
+  const tenant = user.tenantId ? tenants.find(t => t.id === user.tenantId) : null;
+  return { ...user, tenant: tenant! };
 };
 
 const cases: Case[] = [

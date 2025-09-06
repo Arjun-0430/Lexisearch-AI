@@ -1,7 +1,7 @@
 
 "use client";
 
-import { Bell, LogOut, PanelLeftClose, PanelLeftOpen, Search, Settings } from 'lucide-react';
+import { Bell, LogOut, PanelLeftClose, PanelLeftOpen, Search, Settings, User as UserIcon } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -62,11 +62,18 @@ export function Header() {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="bg-glass border-glass">
-            <DropdownMenuLabel>{user?.name}</DropdownMenuLabel>
+            <DropdownMenuLabel>
+                <div>{user?.name}</div>
+                <div className="text-xs text-muted-foreground font-normal">{user?.role} at {user?.tenant?.name || 'Platform'}</div>
+            </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={() => router.push('/settings')}>
                 <Settings className="mr-2 h-4 w-4"/>
                 Settings
+            </DropdownMenuItem>
+             <DropdownMenuItem onClick={() => router.push('/user-management')}>
+                <UserIcon className="mr-2 h-4 w-4"/>
+                Manage Users
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={handleLogout}>

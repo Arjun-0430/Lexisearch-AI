@@ -18,6 +18,7 @@ import { Button } from '../ui/button';
 import { cn } from '@/lib/utils';
 import { useSidebar } from '@/hooks/use-sidebar';
 import { Scale } from 'lucide-react';
+import type { Role } from '@/lib/types';
 
 export function AppSidebar() {
   const pathname = usePathname();
@@ -29,6 +30,11 @@ export function AppSidebar() {
   };
 
   if (!user) return null;
+
+  const hasPermission = (requiredRoles?: Role[]) => {
+      if (!requiredRoles || requiredRoles.length === 0) return true;
+      return requiredRoles.includes(user.role);
+  }
 
   return (
      <Sidebar
@@ -49,7 +55,7 @@ export function AppSidebar() {
       <SidebarContent className="!py-0">
         <SidebarMenu>
           {navItems.map((item, i) => {
-            if (item.adminOnly && user.role !== 'Administrator') {
+            if (!hasPermission(item.allowedRoles)) {
               return null;
             }
             return (
@@ -65,10 +71,13 @@ export function AppSidebar() {
           })}
         </SidebarMenu>
 
-        {user.isSuperAdmin && (
+        {user.role === 'Platform Super Admin' && (
           <>
             <Separator className="my-4" />
              <SidebarMenu>
+              <div className={cn("px-3 text-xs font-semibold text-muted-foreground uppercase mb-2", collapsed && "hidden")}>
+                Platform
+              </div>
               {superAdminNavItems.map((item, i) => (
                  <motion.div key={item.id} initial={{ x: -16, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.1 * (i + navItems.length) }}>
                     <SidebarMenuItem>
