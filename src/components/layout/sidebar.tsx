@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -35,7 +36,7 @@ export function AppSidebar() {
         collapsible
         side="left"
       >
-      <SidebarHeader className={cn("p-4 flex items-center gap-3 transition-all duration-300", collapsed ? "justify-center" : "justify-start")}>
+      <SidebarHeader className={cn("p-4 flex items-center gap-3 transition-all duration-300 h-16 border-b border-border/50", collapsed ? "justify-center" : "justify-start")}>
         <div className="rounded-lg p-2 bg-gradient-to-r from-pink-100 to-blue-100">
            <Scale className="h-7 w-7 text-pink-500" />
         </div>

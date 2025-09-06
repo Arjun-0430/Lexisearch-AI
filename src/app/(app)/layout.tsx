@@ -49,24 +49,26 @@ function AppLayoutContent({ children }: { children: React.ReactNode }) {
             {showSplash && <SplashScreen />}
         </AnimatePresence>
         
-        <AppSidebar />
-        
-        <div className={cn("relative h-full transition-all duration-300 ease-in-out", collapsed ? "pl-14" : "pl-52")}>
-            <Header />
-            <main className="absolute inset-x-0 top-16 bottom-0 overflow-y-auto p-4 sm:p-6 md:p-8">
-              <AnimatePresence mode="wait">
-                <motion.div 
-                    key={router.pathname}
-                    variants={mainVariants} 
-                    initial="hidden" 
-                    animate="visible" 
-                    exit="exit"
-                    className="max-w-7xl mx-auto w-full"
-                >
-                    {children}
-                </motion.div>
-              </AnimatePresence>
-            </main>
+        <div className="flex h-full">
+            <AppSidebar />
+            
+            <div className={cn("flex flex-col flex-1 h-full transition-all duration-300 ease-in-out")}>
+                <Header />
+                <main className="flex-1 overflow-y-auto p-4 sm:p-6 md:p-8">
+                  <AnimatePresence mode="wait">
+                    <motion.div 
+                        key={router.pathname}
+                        variants={mainVariants} 
+                        initial="hidden" 
+                        animate="visible" 
+                        exit="exit"
+                        className="max-w-7xl mx-auto w-full"
+                    >
+                        {children}
+                    </motion.div>
+                  </AnimatePresence>
+                </main>
+            </div>
         </div>
 
         <div className="fixed right-8 bottom-8 z-40">

@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Bell, LogOut, PanelLeftClose, PanelLeftOpen, Search, Settings } from 'lucide-react';
@@ -27,11 +28,10 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-30 flex h-16 items-center gap-4 px-4 sm:px-6 shrink-0">
+    <header className="sticky top-0 z-30 flex h-16 items-center gap-4 px-4 sm:px-6 shrink-0 bg-background/80 backdrop-blur-sm border-b border-border/50">
        <Button
             size="icon"
             variant="ghost"
-            className="hidden sm:inline-flex"
             onClick={toggleSidebar}
         >
             {collapsed ? <PanelLeftOpen className="h-5 w-5" /> : <PanelLeftClose className="h-5 w-5" />}

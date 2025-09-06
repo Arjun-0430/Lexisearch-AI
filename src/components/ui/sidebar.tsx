@@ -1,3 +1,4 @@
+
 "use client"
 
 import * as React from "react"
@@ -15,7 +16,7 @@ import {
 import { useSidebar } from "@/hooks/use-sidebar"
 
 const sidebarVariants = cva(
-  "z-50 flex h-full flex-col bg-background data-[collapsed=false]:w-52 data-[collapsed=true]:w-14",
+  "z-40 flex h-full flex-col bg-background data-[collapsed=false]:w-56 data-[collapsed=true]:w-16 shrink-0",
   {
     variants: {
       side: {
@@ -81,7 +82,6 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
         ref={ref}
         data-collapsed={isCollapsed}
         className={cn(
-          "fixed",
           isMobile && "hidden",
           sidebarVariants({ side, collapsible }),
           className
@@ -100,7 +100,7 @@ const SidebarHeader = React.forwardRef<
   return (
     <div
       ref={ref}
-      className={cn("flex h-14 items-center border-b", className)}
+      className={cn("flex items-center", className)}
       {...props}
     />
   )
