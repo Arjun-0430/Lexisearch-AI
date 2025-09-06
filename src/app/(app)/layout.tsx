@@ -23,7 +23,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   }, [user, router]);
   
   useEffect(() => {
-    const t = setTimeout(() => setShowSplash(false), 2500); // splash duration
+    const t = setTimeout(() => setShowSplash(false), 3000); // splash duration
     return () => clearTimeout(t);
   }, []);
 
@@ -36,7 +36,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   }
 
   const mainVariants = {
-    hidden: { opacity: 0, y: 10 },
+    hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
   };
 

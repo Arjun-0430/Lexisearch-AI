@@ -1,9 +1,13 @@
+
+"use client";
+
 import { PageHeader } from "@/components/shared/page-header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { FileDown, Filter, MoreHorizontal, PlusCircle } from "lucide-react";
+import { motion } from "framer-motion";
 
 const reports = [
     { id: "REP-001", name: "Quarterly Case Analysis", type: "Analytics", date: "2024-07-28", status: "Generated" },
@@ -14,10 +18,16 @@ const reports = [
 ];
 
 export default function ReportsPage() {
+
+    const cardVariant = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } }
+    };
+    
     return (
         <>
             <PageHeader title="Reports" description="Generate and manage comprehensive legal reports">
-                <div className="flex items-center gap-2">
+                <motion.div initial={{y: -20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{delay: 0.2}} className="flex items-center gap-2">
                     <Button variant="outline">
                         <Filter className="h-4 w-4 mr-2" />
                         Filter
@@ -26,59 +36,62 @@ export default function ReportsPage() {
                         <PlusCircle className="h-4 w-4 mr-2" />
                         Create Report
                     </Button>
-                </div>
+                </motion.div>
             </PageHeader>
-            <Card>
-                <CardHeader>
-                    <CardTitle>Generated Reports</CardTitle>
-                    <CardDescription>View and download your previously generated reports.</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <Table>
-                        <TableHeader>
-                            <TableRow>
-                                <TableHead>Report Name</TableHead>
-                                <TableHead>Type</TableHead>
-                                <TableHead>Date Generated</TableHead>
-                                <TableHead>Status</TableHead>
-                                <TableHead><span className="sr-only">Actions</span></TableHead>
-                            </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                            {reports.map((report) => (
-                                <TableRow key={report.id}>
-                                    <TableCell className="font-medium">{report.name}</TableCell>
-                                    <TableCell>{report.type}</TableCell>
-                                    <TableCell>{report.date}</TableCell>
-                                    <TableCell>{report.status}</TableCell>
-                                    <TableCell>
-                                        <DropdownMenu>
-                                            <DropdownMenuTrigger asChild>
-                                                <Button aria-haspopup="true" size="icon" variant="ghost">
-                                                    <MoreHorizontal className="h-4 w-4" />
-                                                    <span className="sr-only">Toggle menu</span>
-                                                </Button>
-                                            </DropdownMenuTrigger>
-                                            <DropdownMenuContent align="end" className="bg-glass border-glass">
-                                                <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                                                <DropdownMenuItem>Download</DropdownMenuItem>
-                                                <DropdownMenuItem>View Details</DropdownMenuItem>
-                                                <DropdownMenuSeparator />
-                                                <DropdownMenuItem className="text-destructive">Delete</DropdownMenuItem>
-                                            </DropdownMenuContent>
-                                        </DropdownMenu>
-                                    </TableCell>
+            <motion.div variants={cardVariant} initial="hidden" animate="visible">
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Generated Reports</CardTitle>
+                        <CardDescription>View and download your previously generated reports.</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <Table>
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead>Report Name</TableHead>
+                                    <TableHead>Type</TableHead>
+                                    <TableHead>Date Generated</TableHead>
+                                    <TableHead>Status</TableHead>
+                                    <TableHead><span className="sr-only">Actions</span></TableHead>
                                 </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
-                </CardContent>
-                <CardFooter>
-                    <div className="text-xs text-muted-foreground">
-                        Showing <strong>1-5</strong> of <strong>24</strong> reports
-                    </div>
-                </CardFooter>
-            </Card>
+                            </TableHeader>
+                            <TableBody>
+                                {reports.map((report) => (
+                                    <TableRow key={report.id}>
+                                        <TableCell className="font-medium">{report.name}</TableCell>
+                                        <TableCell>{report.type}</TableCell>
+                                        <TableCell>{report.date}</TableCell>
+                                        <TableCell>{report.status}</TableCell>
+                                        <TableCell>
+                                            <DropdownMenu>
+                                                <DropdownMenuTrigger asChild>
+                                                    <Button aria-haspopup="true" size="icon" variant="ghost">
+                                                        <MoreHorizontal className="h-4 w-4" />
+                                                        <span className="sr-only">Toggle menu</span>
+                                                    </Button>
+                                                </DropdownMenuTrigger>
+                                                <DropdownMenuContent align="end" className="bg-glass border-glass">
+                                                    <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                                                    <DropdownMenuItem>Download</DropdownMenuItem>
+                                                    <DropdownMenuItem>View Details</DropdownMenuItem>
+                                                    <DropdownMenuSeparator />
+                                                    <DropdownMenuItem className="text-destructive">Delete</DropdownMenuItem>
+                                                </DropdownMenuContent>
+                                            </DropdownMenu>
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </CardContent>
+                    <CardFooter>
+                        <div className="text-xs text-muted-foreground">
+                            Showing <strong>1-5</strong> of <strong>24</strong> reports
+                        </div>
+                    </CardFooter>
+                </Card>
+            </motion.div>
         </>
     );
 }
+
