@@ -54,7 +54,7 @@ export function SplashScreen() {
         animate="visible"
         className="mt-6 text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-blue-500"
       >
-        LegalAI
+        LEXISEARCH AI
       </motion.h1>
 
       <motion.p

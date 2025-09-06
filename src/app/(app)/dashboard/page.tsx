@@ -17,7 +17,7 @@ export default function DashboardPage() {
 
   return (
     <>
-      <PageHeader title="Overview" description="Welcome back to your LegalAI Dashboard." />
+      <PageHeader title="Overview" description="Welcome back to your LEXISEARCH AI Dashboard." />
       <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
         <StatCard title="Total Cases" value={cases.length.toLocaleString()} icon={FileText} />
         <StatCard title="High-Risk Cases" value={cases.filter(c => c.riskLevel === 'High').length} icon={Shield} color="red" />

@@ -40,7 +40,7 @@ export function AppSidebar() {
            <Scale className="h-7 w-7 text-pink-500" />
         </div>
         <motion.div initial={{opacity:0, width: 0}} animate={{opacity: collapsed ? 0: 1, width: collapsed ? 0 : "auto"}} transition={{duration: 0.3}}>
-            <div className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-blue-500">LegalAI</div>
+            <div className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-blue-500">LEXISEARCH AI</div>
             <div className="text-xs text-slate-500">Smarter Access</div>
         </motion.div>
       </SidebarHeader>

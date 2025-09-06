@@ -86,7 +86,7 @@ export default function LoginPage() {
              <Scale className="w-8 h-8 text-pink-500" />
           </div>
           <CardTitle className="text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-blue-500">
-            LegalAI
+            LEXISEARCH AI
           </CardTitle>
           <CardDescription>Smarter Access to Court Records</CardDescription>
         </CardHeader>
