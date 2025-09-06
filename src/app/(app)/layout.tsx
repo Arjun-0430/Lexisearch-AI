@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from 'react';
@@ -50,7 +51,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             <div className="flex flex-col h-full">
               <Header />
               <main className="flex-1 overflow-y-auto p-4 sm:p-6 md:p-8">
-                <motion.div variants={mainVariants} initial="hidden" animate="visible" className="max-w-7xl mx-auto">
+                <motion.div variants={mainVariants} initial="hidden" animate="visible" className="max-w-7xl mx-auto w-full">
                     {children}
                 </motion.div>
               </main>
